@@ -1,15 +1,59 @@
+a {
+  color: #00f;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 body {
   background: #2b2b2b;
   height: 0 !important;
   margin: 2%;
-}
-
-#messages .message {
-  display: none;
+  padding: 2rem;
 }
 
 .link {
   color: #00f;
   cursor: pointer;
   text-decoration: underline;
+}
+
+#messages .message {
+  display: none;
+}
+
+.ui.button {
+  background: #ccc;
+  color: #535353;
+}
+
+.ui.button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.ui.primary.button, .ui.primary.buttons .button {
+  background: #ccc;
+  color: #535353;
+  text-shadow: none;
+}
+
+.ui.primary.button:hover, .ui.primary.buttons .button:hover {
+  background: #fff;
+  color: #000;
+  text-shadow: none;
+}
+
+.ui.secondary.inverted.pointing.menu .active.item {
+  border-color: #fff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.ui.warning.message {
+  background: #ccc;
+  color: #573700;
+}
+
+.ui.warning.message .header {
+  color: #573700;
 }
