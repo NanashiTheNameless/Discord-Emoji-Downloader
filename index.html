@@ -30,7 +30,7 @@
     <link rel="manifest" href="./manifest.json" integrity="sha512-mjEDh1oTNRJ0sM/FdxkkWgzjJVt4Fz8CsPUWe+71u15VVwB7Skre86KpTzI5tJjMMjopMdH3uuV/PjVZFfoE7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div class="ui inverted raised very padded text container segment">
+    <div class="ui inverted raised very padded fluid segment">
       <h1 class="ui header">Discord Emoji Downloader</h1>
       <div class="ui inverted secondary pointing menu">
         <a class="item active" data-tab="default">Default</a>
@@ -245,14 +245,12 @@
             <li>
               Paste and execute the following snippet:
               <code style="user-select: all"
-                >(webpackChunkdiscord_app.push([[''],{},e=&gt;{m=[];for(let c in
-              e.c)m.push(e.c[c])}]),m).find(m=&gt;m?.exports?.default?.getToken!==void
-              0).exports.default.getToken()</code
+                >(()=>{let token;window.webpackChunkdiscord_app.push([[Math.random()],{},r=>{for(const i in r.c){const m=r.c[i],f=m?.exports?.default?.getToken??m?.exports?.getToken;if(typeof f=="function"){token=f();console.log("🗹 Found token via module",i);return}}}]);token?console.log("Your token is:",token):console.warn("🗷 Token not found.");})();</code
                 >
             </li>
             <li>
               Your token will be returned at the bottom of the console. Copy the
-              contents between "". This is your self token.
+              contents after "Your token is:". This is your self token.
             </li>
           </ul>
         </div>
