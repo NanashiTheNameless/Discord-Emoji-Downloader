@@ -10,25 +10,13 @@
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" crossorigin="anonymous" referrerpolicy="no-referrer">
     <meta name="author" content="NanashiTheNameless">
     <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
+    default-src 'self' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com cloudflareinsights.com cdnjs.cloudflare.com discord.com fonts.gstatic.com fonts.googleapis.com;
     block-all-mixed-content;
     frame-ancestors 'self';
-    script-src
-    'self'
-    'report-sample'
-    https://cdnjs.cloudflare.com
-    https://static.cloudflareinsights.com
-    'unsafe-inline'
-    'sha512-c7izR+UqbXuPLadZZxrThSQumrPjQfh5lC72TIVFQQk+1UMTSjmh29G/MoUEQ98res72zTHkaL1LtEWIGeH1Cg=='
-    ;
-    style-src
-    'self'
-    'report-sample'
-    cdnjs.cloudflare.com
-    fonts.googleapis.com
-    'unsafe-inline'
-    'sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw=='
-    ;
+    script-src 'self' 'report-sample' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com 'unsafe-inline';
+    script-src-elem 'self' 'report-sample' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com 'unsafe-inline';
+    script-src-attr 'self' 'report-sample' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com 'unsafe-inline';
+    style-src 'self' 'report-sample' cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline';
     object-src 'none';
     img-src 'self' cdn.discordapp.com cdnjs.cloudflare.com fonts.gstatic.com;
     font-src 'self' data: cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com;
@@ -36,12 +24,6 @@
     worker-src 'self' blob:;
     require-sri-for script style;
     ">
-    <!--
-    app.js:
-      sha512-c7izR+UqbXuPLadZZxrThSQumrPjQfh5lC72TIVFQQk+1UMTSjmh29G/MoUEQ98res72zTHkaL1LtEWIGeH1Cg==
-    app.css:
-      sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw==
-    -->
 
     <meta
       name="description"
