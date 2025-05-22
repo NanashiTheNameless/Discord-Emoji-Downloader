@@ -245,12 +245,12 @@
             <li>
               Paste and execute the following snippet:
               <code style="user-select: all"
-                >(()=>{let token;window.webpackChunkdiscord_app.push([[Math.random()],{},r=>{for(const i in r.c){const m=r.c[i],f=m?.exports?.default?.getToken??m?.exports?.getToken;if(typeof f=="function"){token=f();console.log("🗹 Found token via module",i);return}}}]);token?console.log("Your token is:",token):console.warn("🗷 Token not found.");})();</code
+                >(()=>{let t;window.webpackChunkdiscord_app.push([[Math.random()],{},r=>{for(const i in r.c){const m=r.c[i],f=m?.exports?.default?.getToken??m?.exports?.getToken;if(typeof f=="function"){t=f();return}}}]);t?console.log("\"", t, "\""):console.warn("Token not found.");})();</code
                 >
             </li>
             <li>
               Your token will be returned at the bottom of the console. Copy the
-              contents after "Your token is:". This is your self token.
+              contents between "" This is your self token.
             </li>
           </ul>
         </div>
