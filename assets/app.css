@@ -37,6 +37,12 @@ body {
   text-shadow: none;
 }
 
+.ui.primary.button:active, .ui.primary.buttons .button:active {
+  background: #fff;
+  color: #000;
+  text-shadow: none;
+}
+
 .ui.primary.button:hover, .ui.primary.buttons .button:hover {
   background: #fff;
   color: #000;
