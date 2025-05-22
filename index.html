@@ -1,33 +1,88 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
-      />
+      >
     <title>Discord Emoji Downloader</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" integrity="sha512-vbdFT1syb6b2KEpW6O0KItQG4C9vw9HHtW8sTtIM6qdQ+0B8Z+fP107tMixjptP2fWd0MBeyNLQJo1TfEOGzaQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="author" content="NanashiTheNameless" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta name="author" content="NanashiTheNameless">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    block-all-mixed-content;
+    frame-ancestors 'self';
+    script-src
+    'self'
+    'report-sample'
+    https://cdnjs.cloudflare.com
+    https://static.cloudflareinsights.com
+    'sha512-xylzfb6LZn1im1ge493MNv0fISAU4QkshbKz/jVh6MJFAlZ6T1NRDJa0ZKb7ECuhSTO7fVy8wkXkT95/f4R4nA=='
+    'sha512-K+H+3WTfhwE9fnfv4makUYJxz4kwIadQPOjGHAmOT96FtMSPRnvnuGR/sZjuNB2MmmHQ94Mnc9zoDxTHKMMEww=='
+    'sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+    'sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=='
+    'sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=='
+    'sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=='
+
+    'sha512-c7izR+UqbXuPLadZZxrThSQumrPjQfh5lC72TIVFQQk+1UMTSjmh29G/MoUEQ98res72zTHkaL1LtEWIGeH1Cg=='
+    ;
+    style-src
+    'self'
+    'report-sample'
+    cdnjs.cloudflare.com
+    fonts.googleapis.com
+    'sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=='
+
+    'sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw=='
+    ;
+    object-src 'none';
+    img-src 'self' cdn.discordapp.com cdnjs.cloudflare.com fonts.gstatic.com;
+    font-src 'self' data: cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com;
+    connect-src 'self' cloudflareinsights.com cdnjs.cloudflare.com discord.com fonts.gstatic.com fonts.googleapis.com;
+    worker-src 'self' blob:;
+    require-sri-for script style;
+    ">
+    <!--
+    ACE Editor core (ace.min.js):
+      sha512-xylzfb6LZn1im1ge493MNv0fISAU4QkshbKz/jVh6MJFAlZ6T1NRDJa0ZKb7ECuhSTO7fVy8wkXkT95/f4R4nA==
+    ACE JSON mode (mode-json.min.js):
+      sha512-K+H+3WTfhwE9fnfv4makUYJxz4kwIadQPOjGHAmOT96FtMSPRnvnuGR/sZjuNB2MmmHQ94Mnc9zoDxTHKMMEww==
+    jQuery 3.7.1:
+      sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==
+    Semantic UI JS 2.5.0:
+      sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==
+    FileSaver.js 2.0.5:
+      sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==
+    JSZip 3.10.1:
+      sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==
+    app.js:
+      sha512-c7izR+UqbXuPLadZZxrThSQumrPjQfh5lC72TIVFQQk+1UMTSjmh29G/MoUEQ98res72zTHkaL1LtEWIGeH1Cg==
+    Semantic UI CSS 2.5.0:
+      sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==
+    app.css:
+      sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw==
+    -->
+
     <meta
       name="description"
       content="Get all emojis from a server in a ZIP file."
-      />
+      >
     <meta
       name="keywords"
       content="discord, emoji, emojis, discordapp, discord app, emoji downloader, download emoji"
-      />
-    <meta name="theme-color" content="#7289DA" />
-    <meta property="og:title" content="Discord Emoji Downloader" />
+      >
+    <meta name="theme-color" content="#7289DA">
+    <meta property="og:title" content="Discord Emoji Downloader">
     <meta
       property="og:description"
       content="Get all emojis from a server in a ZIP file."
-      />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://discord.namelessnanashi.dev/" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="./assets/app.css" integrity="sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="manifest" href="./manifest.json" integrity="sha512-mjEDh1oTNRJ0sM/FdxkkWgzjJVt4Fz8CsPUWe+71u15VVwB7Skre86KpTzI5tJjMMjopMdH3uuV/PjVZFfoE7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://discord.namelessnanashi.dev/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" type="text/css" href="./assets/app.css" integrity="sha512-MVULatV+wiEDaUtTF/8eY55ORbRaZ4k1VE1sek546C6vuyFXezeaodmQCWhqouopVzOfehMDaBziW4i+Ef3oTw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="manifest" href="./manifest.json" crossorigin="anonymous" referrerpolicy="no-referrer">
   </head>
   <body>
     <div class="ui inverted raised very padded fluid segment">
@@ -47,7 +102,7 @@
           </div>
           This page does not use your user token in any harmful way and only
           uses it to authenticate with Discord, fetch your server list and their
-          emojis.<br />
+          emojis.<br>
           (<a
             href="https://github.com/NanashiTheNameless/Discord-Emoji-Downloader"
             target="_blank"
@@ -67,7 +122,7 @@
               name="token"
               id="token"
               placeholder="mfa.ABcd1e2Fgh3i-jKlmnoPQRstu4VWx4yz5A6b7cDEFGhiJk8LmNOPqR_sSTUV9XyzabcdeF0Xd"
-              />
+              >
           </div>
           <button name="continue" id="continue" class="ui button">
           Continue
@@ -83,7 +138,7 @@
           <div class="field">
             <label>Server</label>
             <div class="ui fluid search selection dropdown" id="server-select">
-              <input type="hidden" name="server" />
+              <input type="hidden" name="server">
               <i class="dropdown icon"></i>
               <div class="default text">Select Server</div>
             </div>
@@ -94,7 +149,7 @@
               class="ui fluid multiple search selection dropdown"
               id="emoji-select"
               >
-              <input type="hidden" name="emojis" />
+              <input type="hidden" name="emojis">
               <i class="dropdown icon"></i>
               <div class="default text">Select Emojis</div>
             </div>
@@ -105,7 +160,7 @@
               class="ui fluid multiple search selection dropdown"
               id="emoji-select2"
               >
-              <input type="hidden" name="emojis2" />
+              <input type="hidden" name="emojis2">
               <i class="dropdown icon"></i>
               <div class="default text">Select Emojis</div>
             </div>
@@ -116,7 +171,7 @@
               class="ui fluid multiple search selection dropdown"
               id="sticker-select"
               >
-              <input type="hidden" name="stickers" />
+              <input type="hidden" name="stickers">
               <i class="dropdown icon"></i>
               <div class="default text">Select Sticker</div>
             </div>
