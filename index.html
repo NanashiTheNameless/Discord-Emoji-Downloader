@@ -130,7 +130,7 @@
             <pre>Ctrl + Shift + C</pre>
           </li>
           <li> To enable the ability to paste in the console you might need to type "<code style="user-select: all">allow pasting</code>" </li>
-          <li> Paste and execute the following snippet: <code style="user-select: all">(()=>{let t;window.webpackChunkdiscord_app.push([[Math.random()],{},r=>{for(const i in r.c){const m=r.c[i],f=m?.exports?.default?.getToken??m?.exports?.getToken;if(typeof f=="function"){t=f();return}}}]);t?console.log(`"${t}"`):console.warn("Token not found.");})();</code> </li>
+          <li> Paste and execute the following snippet: <code style="user-select: all">(()=>{const w=[];webpackChunkdiscord_app.push([[Math.random()],{},m=>Object.values(m.c).forEach(x=>w.push(x))]);const mod=w.find(x=>{try{const y=x.exports.default.getToken();return typeof y==='string'&&y.split('.').length===3}catch{return false}});if(!mod)return console.warn('Token module not found');console.log(`"${mod.exports.default.getToken()}"`);})();</code> </li>
           <li> Your token will be returned at the bottom of the console. Copy the contents between the quotes. This is your self token. </li>
         </ul>
       </div>
