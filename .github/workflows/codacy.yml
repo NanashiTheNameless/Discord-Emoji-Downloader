@@ -45,7 +45,7 @@ jobs:
           # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
           # You can also omit the token and run the tools that support default configurations
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          output: results.sarif
+          output: /tmp/results.sarif
           format: sarif
           # Adjust severity of non-security issues
           gh-code-scanning-compat: true
@@ -53,11 +53,26 @@ jobs:
           # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
 
-      - name: Fix SARIF file
-        uses: jq '.runs |= unique_by({tool, invocations})' results.sarif > codacy.sarif
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@31a502724c77ada11ba0b3442e34757182ccdbd3
+        with:
+          files: /tmp/results.sarif
 
-      # Upload the SARIF file generated in the previous step
-      - name: Upload SARIF results file
+      - name: Remove duplicate runs
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: jq -c '.runs |= unique_by({tool, invocations, results})' < /tmp/results.sarif > codacy.sarif
+      - name: Upload Reports
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: actions/upload-artifact@de65e23aa2b7e23d713bb51fbfcb6d502f8667d8
+        with:
+          retention-days: 1
+          name: SARIF file
+          path: codacy.sarif
+
+      - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@701df0e49d84a24bd8f0d01f80c0dbf69ab07674
+        if: steps.check_files.outputs.files_exists == 'true'
+        continue-on-error: true
         with:
           sarif_file: codacy.sarif
