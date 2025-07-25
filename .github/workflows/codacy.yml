@@ -45,7 +45,6 @@ jobs:
           # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
           # You can also omit the token and run the tools that support default configurations
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          verbose: true
           output: results.sarif
           format: sarif
           # Adjust severity of non-security issues
@@ -54,8 +53,11 @@ jobs:
           # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
 
+      - name: Fix SARIF file
+        uses: jq '.runs |= unique_by({tool, invocations})' results.sarif > codacy.sarif
+
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@701df0e49d84a24bd8f0d01f80c0dbf69ab07674
         with:
-          sarif_file: results.sarif
+          sarif_file: codacy.sarif
