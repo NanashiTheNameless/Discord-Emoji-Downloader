@@ -253,7 +253,7 @@ $(document).ready(function () {
         logoRes = await fetch(logoUrl).then((logoRes) => logoRes.blob())
       } catch {
         console.log('Logo blocked by CORS, trying proxy')
-        logoRes = await fetch(`https://corsproxy.io/?url=${logoUrl}`).then((logoRes) => logoRes.blob())
+        logoRes = await fetch(`https://corsproxy.io/?${logoUrl}`).then((logoRes) => logoRes.blob())
       }
       zip.file('logo.png', logoRes)
       const emojiFolder = zip.folder('Emojis')
@@ -268,7 +268,7 @@ $(document).ready(function () {
         } catch {
           console.log(`Emoji ${renamedEmoji[i].id} blocked by CORS, trying proxy`)
           res = await fetch(
-            `https://corsproxy.io/?url=${Emoji(renamedEmoji[i].id, renamedEmoji[i].animated)}`
+            `https://corsproxy.io/?${Emoji(renamedEmoji[i].id, renamedEmoji[i].animated)}`
           ).then((res) => res.blob())
         }
         emojiFolder.file(
@@ -290,7 +290,7 @@ $(document).ready(function () {
         } catch {
           console.log(`Sticker ${renamedStickers[i].id} blocked by CORS, trying proxy`)
           res = await fetch(
-            `https://corsproxy.io/?url=${Sticker(renamedStickers[i].id, isGif)}`
+            `https://corsproxy.io/?${Sticker(renamedStickers[i].id, isGif)}`
           ).then((res) => res.blob())
         }
         stickerFolder.file(
