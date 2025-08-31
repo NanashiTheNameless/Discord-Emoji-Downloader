@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-| Version               | Supported         |
-|------------------------|--------------------|
-| Master Branch          | :white_check_mark: |
-| Upstream repo          | :x:                |
-| Other Branch(es)       | :x:                |
-| External forks         | :x:                |
-| Previous versions      | :x:                |
+| Version           | Supported          |
+|-------------------|--------------------|
+| Master Branch     | :white_check_mark: |
+| Upstream repo     | :x:                |
+| Other Branch(es)  | :x:                |
+| External forks    | :x:                |
+| Previous versions | :x:                |
 
 ## Reporting a Vulnerability
 
