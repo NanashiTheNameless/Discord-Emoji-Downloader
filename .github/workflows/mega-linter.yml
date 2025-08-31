@@ -50,7 +50,7 @@ jobs:
     steps:
       # Git Checkout
       - name: Checkout Code
-        uses: actions/checkout@8edcb1bdb4e267140fa742c62e395cd74f332709
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
@@ -63,7 +63,7 @@ jobs:
 
         # You can override MegaLinter flavor used to have faster performances
         # More info at https://megalinter.io/latest/flavors/
-        uses: oxsecurity/megalinter/flavors/cupcake@a8f126a108c1d12822cdd0dac917a8f6399d8582
+        uses: oxsecurity/megalinter/flavors/cupcake@c1ec5523ae127619b44ead1dc030ba44ddb6df91
 
         id: ml
 
@@ -113,7 +113,7 @@ jobs:
       # Create pull request if applicable
       # (for now works only on PR from same repository, not from forks)
       - name: Create Pull Request with applied fixes
-        uses: peter-evans/create-pull-request@1310d7dab503600742045e6fd4b84dda64352858
+        uses: peter-evans/create-pull-request@18e469570b1cf0dfc11d60ec121099f8ff3e617a
         id: cpr
         if: >-
           steps.ml.outputs.has_updated_sources == 1 &&
