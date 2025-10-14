@@ -10,7 +10,7 @@ const Emoji = (emojiID, animated = false) =>
 const Sticker = (stickerID, isGif = false) =>
   `https://media.discordapp.net/stickers/${stickerID}.${isGif ? 'gif' : 'png'}?size=1024`
 const API = {
-  host: 'https://discordapp.com/api/v10',
+  host: 'https://discord.com/api/v9',
   emojis: (guild) => `/guilds/${guild}/emojis`,
   guilds: '/users/@me/guilds',
   guild: (id) => `/guilds/${id}`,
