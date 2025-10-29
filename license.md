@@ -1,4 +1,4 @@
-# 🏳️‍🌈 Opinionated Queer License v1.2
+# 🏳️‍🌈 Opinionated Queer License v1.3
 
 © Copyright [NamelessNanashi](<https://git.NamelessNanashi.dev/>)
 
@@ -13,7 +13,7 @@ subject to the following conditions:
 
 The User must give appropriate credit to the Licensor,
 provide a copy of this license or a (clickable, if the medium allows) link to
-[oql.avris.it/license/v1.2](<https://oql.avris.it/license/v1.2>),
+[oql.avris.it/license/v1.3](<https://oql.avris.it/license/v1.3>),
 and indicate whether and what kind of changes were made.
 The User may do so in any reasonable manner,
 but not in any way that suggests the Licensor endorses the User or their use.
@@ -28,6 +28,9 @@ as defined in either of the following documents:
 [Universal Declaration of Human Rights](<https://www.un.org/en/about-us/universal-declaration-of-human-rights>),
 [European Convention on Human Rights](<https://prd-echr.coe.int/web/echr/european-convention-on-human-rights>)
 along with the rulings of the [European Court of Human Rights](<https://www.echr.coe.int/>).
+
+No entity that commits such abuses or materially supports entities that do
+may use the Work for any reason.
 
 No law enforcement, carceral institutions, immigration enforcement entities, military entities or military contractors
 may use the Work for any reason. This also applies to any individuals employed by those entities.
