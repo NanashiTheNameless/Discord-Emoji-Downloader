@@ -1,3 +1,7 @@
+* {
+  font-family: '0xProto', monospace !important;
+}
+
 a {
   color: #00f;
   cursor: pointer;
@@ -6,6 +10,7 @@ a {
 
 body {
   background: #2b2b2b;
+  font-family: '0xProto', monospace;
   height: 0 !important;
   margin: 2rem;
   padding: 1rem;

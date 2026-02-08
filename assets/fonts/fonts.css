@@ -1,0 +1,29 @@
+/* 0xProto-Regular */
+@font-face {
+     font-family: '0xProto';
+     font-style: normal;
+     font-weight: 400;
+     src: url('./0xProto/0xProto-Regular.woff2') format('woff2'),
+          url('./0xProto/0xProto-Regular.ttf') format('truetype'),
+          url('./0xProto/0xProto-Regular.otf') format('opentype');
+}
+
+/* 0xProto-Bold */
+@font-face {
+     font-family: '0xProto';
+     font-style: normal;
+     font-weight: 700;
+     src: url('./0xProto/0xProto-Bold.woff2') format('woff2'),
+          url('./0xProto/0xProto-Bold.ttf') format('truetype'),
+          url('./0xProto/0xProto-Bold.otf') format('opentype');
+}
+
+/* 0xProto-Italic */
+@font-face {
+     font-family: '0xProto';
+     font-style: italic;
+     font-weight: 400;
+     src: url('./0xProto/0xProto-Italic.woff2') format('woff2'),
+          url('./0xProto/0xProto-Italic.ttf') format('truetype'),
+          url('./0xProto/0xProto-Italic.otf') format('opentype');
+}
