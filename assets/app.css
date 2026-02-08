@@ -1,4 +1,4 @@
-* {
+*:not(i.icon) {
   font-family: '0xProto', monospace !important;
 }
 
