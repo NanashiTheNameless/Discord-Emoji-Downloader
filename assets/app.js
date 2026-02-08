@@ -107,7 +107,7 @@ $(document).ready(function () {
   if (window.location.search || window.location.hash) {
     window.history.replaceState({}, document.title, window.location.pathname)
   }
-  
+
   $('.menu .item').tab()
   $('#emojis').hide()
   $('#emojis2').hide()
