@@ -41,12 +41,12 @@
       <div class="ui warning message">
         <div class="header"> Warning: be careful, sharing your user token can be dangerous! </div> This page does not use your user token in any harmful way and only uses it to authenticate with Discord, fetch your server list and their emojis.<br> (<a href="https://github.com/NanashiTheNameless/Discord-Emoji-Downloader" target="_blank">Source Code can be found here</a>)
       </div>
-      <form class="ui inverted form">
-        <div class="field"> <label>User Token <span class="link" onclick="javascript:helpModal();">(How do I get my Token?)</span> </label> <input type="password" name="token" id="token" placeholder="mfa.ABcd1e2Fgh3i-jKlmnoPQRstu4VWx4yz5A6b7cDEFGhiJk8LmNOPqR_sSTUV9XyzabcdeF0Xd"> </div> <button name="continue" id="continue" class="ui button"> Continue </button>
+      <form class="ui inverted form" onsubmit="return false;">
+        <div class="field"> <label>User Token <span class="link" onclick="javascript:helpModal();">(How do I get my Token?)</span> </label> <input type="password" name="token" id="token" autocomplete="off" placeholder="mfa.ABcd1e2Fgh3i-jKlmnoPQRstu4VWx4yz5A6b7cDEFGhiJk8LmNOPqR_sSTUV9XyzabcdeF0Xd"> </div> <button type="button" name="continue" id="continue" class="ui button"> Continue </button>
       </form>
     </div>
     <div class="ui inverted tab segment" id="default-2" data-tab="default-hide">
-      <form class="ui inverted form">
+      <form class="ui inverted form" onsubmit="return false;">
         <div class="field"> <label>Server</label>
           <div class="ui fluid search selection dropdown" id="server-select"> <input type="hidden" name="server"> <i class="dropdown icon"></i>
             <div class="default text">Select Server</div>
@@ -67,7 +67,7 @@
             <div class="default text">Select Sticker</div>
           </div>
         </div>
-        <div class="field"> <button name="submit" id="submit" class="ui primary button"> Submit </button> </div>
+        <div class="field"> <button type="button" name="submit" id="submit" class="ui primary button"> Submit </button> </div>
       </form>
     </div>
     <div class="ui inverted tab segment" id="manual" data-tab="manual">
@@ -92,27 +92,27 @@
             ">curl 'https://discord.com/api/v10/guilds/&lt;SERVER ID&gt;' --compressed -H 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.3' -H 'Accept: */*' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br, zstd' -H 'Referer: https://discord.com/app' -H 'Authorization: &lt;TOKEN&gt;'</code></font>
       </div>
       <p></p>
-      <div class="ui inverted form">
+      <div class="ui inverted form" onsubmit="return false;">
         <div class="field"> <label>Guild Object</label>
           <div id="editor" style="height: 350px; width: 100%"></div>
         </div>
-        <div class="field"> <button name="submit" id="submit" class="ui primary button"> Submit </button> </div>
+        <div class="field"> <button type="button" name="submit" id="submit" class="ui primary button"> Submit </button> </div>
       </div>
     </div>
     <div id="messages">
-      <div class="ui icon message" id="loading"> <i class="notched circle loading icon"></i>
+      <div class="ui icon message" id="loading"> <i class="sync loading icon"></i>
         <div class="content">
           <div class="header" id="loading-header">Just a moment</div>
           <p id="loading-msg">Collecting the emojis/stickers for you.</p>
         </div>
       </div>
-      <div class="ui icon success message" id="success"> <i class="smile icon"></i>
+      <div class="ui icon success message" id="success"> <i class="check circle outline icon"></i>
         <div class="content">
           <div class="header" id="success-header">We found them!</div>
           <p id="success-msg"> Found <strong id="emoji-count">NaN</strong> emojis and <strong id="sticker-count">NaN</strong> stickers which are packed in a ZIP file above. </p>
         </div>
       </div>
-      <div class="ui icon error message" id="error"> <i class="warning circle icon"></i>
+      <div class="ui icon error message" id="error"> <i class="times circle outline icon"></i>
         <div class="content">
           <div class="header" id="error-header">An error occurred</div>
           <p id="error-msg"></p>
@@ -146,7 +146,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="module" src="./assets/app.js" integrity="sha512-c7izR+UqbXuPLadZZxrThSQumrPjQfh5lC72TIVFQQk+1UMTSjmh29G/MoUEQ98res72zTHkaL1LtEWIGeH1Cg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="./assets/app.js" integrity="sha512-JowQJ7r6KRAdg6jvGwifZwJ0aW+DZm7o3to7LMWAYz3oXt8EDRkSYme0vUPtmy3ZWfM933OnbQSXDt7LPgHJnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     const helpModal = () => {
         $('.ui.basic.modal').modal('show')

@@ -1,7 +1,7 @@
 /* global $, error, saveAs, ace, JSZip */
 const downloadBtn = $(
-  '<button class="ui labeled icon red button" id="download" type="button">' +
-  '<i class="cloud icon"></i>Download</button>'
+  '<button class="ui icon red button" id="download" type="button">' +
+  '<i class="download icon"></i> Download</button>'
 )
 
 const Emoji = (emojiID, animated = false) =>
@@ -103,6 +103,11 @@ function attachDownloadHandler (zip, cleanGuildName) {
 }
 
 $(document).ready(function () {
+  // Prevent token from appearing in URL if accidentally submitted
+  if (window.location.search || window.location.hash) {
+    window.history.replaceState({}, document.title, window.location.pathname)
+  }
+  
   $('.menu .item').tab()
   $('#emojis').hide()
   $('#emojis2').hide()
