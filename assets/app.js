@@ -288,6 +288,7 @@ $(document).ready(function () {
       for (const i in renamedStickers) {
         let res
         const isGif = renamedStickers[i].format_type === 4
+        const isApng = renamedStickers[i].format_type === 2
         try {
           res = await fetch(Sticker(renamedStickers[i].id, isGif)).then((res) =>
             res.blob()
@@ -298,8 +299,9 @@ $(document).ready(function () {
             `https://corsproxy.io/?${Sticker(renamedStickers[i].id, isGif)}`
           ).then((res) => res.blob())
         }
+        const ext = isGif ? 'gif' : (isApng ? 'apng' : 'png')
         stickerFolder.file(
-          `${renamedStickers[i].name}.${isGif ? 'gif' : 'png'}`,
+          `${renamedStickers[i].name}.${ext}`,
           res
         )
         stickerCount++
@@ -350,10 +352,13 @@ $(document).ready(function () {
 
       let stickerCount = 0
       for (const i in guild.stickers) {
-        const res = await fetch(Sticker(guild.stickers[i].id)).then((res) =>
+        const isGif = guild.stickers[i].format_type === 4
+        const isApng = guild.stickers[i].format_type === 2
+        const res = await fetch(Sticker(guild.stickers[i].id, isGif)).then((res) =>
           res.blob()
         )
-        stickerFolder.file(`${guild.stickers[i].name}.png`, res)
+        const ext = isGif ? 'gif' : (isApng ? 'apng' : 'png')
+        stickerFolder.file(`${guild.stickers[i].name}.${ext}`, res)
         stickerCount++
       }
 
