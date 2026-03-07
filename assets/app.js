@@ -9,6 +9,8 @@ const Emoji = (emojiID, animated = false) =>
 // media.discordapp.net was used instead of cdn.discordapp.com to bypass CORS problems
 const Sticker = (stickerID, isGif = false) =>
   `https://media.discordapp.net/stickers/${stickerID}.${isGif ? 'gif' : 'png'}?size=1024`
+const CORS_PROXY = (url) =>
+  `https://cors.namelessnanashi.dev/?url=${encodeURIComponent(url)}`
 const API = {
   host: 'https://discord.com/api/v10',
   emojis: (guild) => `/guilds/${guild}/emojis`,
@@ -258,7 +260,7 @@ $(document).ready(function () {
         logoRes = await fetch(logoUrl).then((logoRes) => logoRes.blob())
       } catch {
         console.log('Logo blocked by CORS, trying proxy')
-        logoRes = await fetch(`https://corsproxy.io/?${logoUrl}`).then((logoRes) => logoRes.blob())
+        logoRes = await fetch(CORS_PROXY(logoUrl)).then((logoRes) => logoRes.blob())
       }
       zip.file('logo.png', logoRes)
       const emojiFolder = zip.folder('Emojis')
@@ -272,9 +274,9 @@ $(document).ready(function () {
           ).then((res) => res.blob())
         } catch {
           console.log(`Emoji ${renamedEmoji[i].id} blocked by CORS, trying proxy`)
-          res = await fetch(
-            `https://corsproxy.io/?${Emoji(renamedEmoji[i].id, renamedEmoji[i].animated)}`
-          ).then((res) => res.blob())
+          res = await fetch(CORS_PROXY(
+            Emoji(renamedEmoji[i].id, renamedEmoji[i].animated)
+          )).then((res) => res.blob())
         }
         emojiFolder.file(
           `${renamedEmoji[i].name}.${renamedEmoji[i].animated ? 'gif' : 'png'}`,
@@ -295,9 +297,9 @@ $(document).ready(function () {
           )
         } catch {
           console.log(`Sticker ${renamedStickers[i].id} blocked by CORS, trying proxy`)
-          res = await fetch(
-            `https://corsproxy.io/?${Sticker(renamedStickers[i].id, isGif)}`
-          ).then((res) => res.blob())
+          res = await fetch(CORS_PROXY(
+            Sticker(renamedStickers[i].id, isGif)
+          )).then((res) => res.blob())
         }
         const ext = isGif ? 'gif' : (isApng ? 'apng' : 'png')
         stickerFolder.file(
